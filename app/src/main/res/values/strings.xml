@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Music Player</string>
+    <string name="album_cover">Portada del álbum</string>
+    <string name="song_title">Título de la canción</string>
+    <string name="artist_name">Nombre del artista</string>
+    <string name="previous">Canción anterior</string>
+    <string name="play_pause">Reproducir/Pausar</string>
+    <string name="next">Siguiente canción</string>
+    <string name="playlist">Lista de reproducción</string>
+    <string name="add_songs">Agregar canciones</string>
+    <string name="back">Atrás</string>
+</resources>

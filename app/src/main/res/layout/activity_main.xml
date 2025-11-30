@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+<!-- Portada del álbum -->
+    <ImageView
+        android:id="@+id/album_cover"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/album_cover_placeholder"
+        android:contentDescription="@string/album_cover" />
+
+    <!-- Información de la canción -->
+    <TextView
+        android:id="@+id/song_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/album_cover"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:text="@string/song_title"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/artist_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/song_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/artist_name"
+        android:textColor="@color/gray"
+        android:textSize="16sp" />
+
+    <!-- Barra de progreso -->
+    <SeekBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/artist_name"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:progress="30"
+        android:progressTint="@color/white" />
+
+    <!-- Tiempos -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progress_bar"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/current_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="01:30"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/total_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="04:15"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <!-- Controles de reproducción -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progress_bar"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btn_previous"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@null"
+            android:src="@drawable/ic_previous"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/previous" />
+
+        <ImageButton
+            android:id="@+id/btn_play_pause"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@null"
+            android:src="@drawable/ic_play"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/play_pause" />
+
+        <ImageButton
+            android:id="@+id/btn_next"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@null"
+            android:src="@drawable/ic_next"
+            android:scaleType="fitCenter"
+            android:contentDescription="@string/next" />
+    </LinearLayout>
+
+    <!-- Botón de lista de reproducción -->
+    <ImageButton
+        android:id="@+id/btn_playlist"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp"
+        android:background="@null"
+        android:src="@drawable/ic_playlist"
+        android:scaleType="fitCenter"
+        android:contentDescription="@string/playlist" />
+
+</RelativeLayout>
