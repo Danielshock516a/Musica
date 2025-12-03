@@ -2,6 +2,7 @@ package com.example.musica;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MusicManager {
     private static MusicManager instance;
@@ -28,12 +29,6 @@ public class MusicManager {
         this.currentSongIndex = -1;
     }
 
-    public void addToPlaylist(Song song) {
-        playlist.add(song);
-        if (originalPlaylist != null) {
-            originalPlaylist.add(song);
-        }
-    }
 
     public Song getCurrentSong() {
         if (currentSongIndex >= 0 && currentSongIndex < playlist.size()) {
@@ -76,48 +71,20 @@ public class MusicManager {
             }
         }
     }
+    public Song getRandomSong() {
+        if (playlist.isEmpty()) return null;
 
-    public void shuffle() {
-        if (isShuffled) {
-            // Restaurar orden original
-            playlist = new ArrayList<>(originalPlaylist);
-            isShuffled = false;
-        } else {
-            // Mezclar playlist
-            List<Song> shuffled = new ArrayList<>(playlist);
-            java.util.Collections.shuffle(shuffled);
-            playlist = shuffled;
-            isShuffled = true;
+        Random random = new Random();
+        int newIndex = random.nextInt(playlist.size());
+
+        // Asegurar que cambie la canción (opcional)
+        if (playlist.size() > 1 && newIndex == currentSongIndex) {
+            newIndex = (newIndex + 1) % playlist.size();
         }
 
-        // Reajustar el índice actual después de mezclar
-        Song current = getCurrentSong();
-        if (current != null) {
-            setCurrentSongByPath(current.getPath());
-        }
+        currentSongIndex = newIndex;
+        return playlist.get(currentSongIndex);
     }
 
-    public boolean hasNext() {
-        return !playlist.isEmpty();
-    }
 
-    public boolean hasPrevious() {
-        return !playlist.isEmpty();
-    }
-
-    public int getCurrentIndex() {
-        return currentSongIndex;
-    }
-
-    public int getPlaylistSize() {
-        return playlist.size();
-    }
-
-    public List<Song> getPlaylist() {
-        return new ArrayList<>(playlist);
-    }
-
-    public boolean isShuffled() {
-        return isShuffled;
-    }
 }

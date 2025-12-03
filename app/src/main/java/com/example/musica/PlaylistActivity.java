@@ -23,7 +23,6 @@ public class PlaylistActivity extends AppCompatActivity {
     private static final String TAG = "PlaylistActivity";
     private ListView playlistView;
 
-    // AQUÍ VA LA DECLARACIÓN - cambia ArrayList<HashMap> por List<Song>
     private List<Song> musicList;  // ← ESTA LÍNEA
 
     private MusicScanner musicScanner;
